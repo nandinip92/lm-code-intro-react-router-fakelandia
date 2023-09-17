@@ -1,42 +1,54 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Bitter:wght@400;500&family=DM+Sans:opsz,wght@9..40,200&family=Mooli&family=Poppins:wght@500&display=swap");
+
+#root {
+  box-sizing: border-box;
+  font-family: "Bitter", serif;
+  --light-color: #c4d46f;
+  --maroon-color: #860c46;
+  --darkGreen-color: #002f1b;
+  --voilet-color: #4f036b;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.fakelandiaHeader {
+  /* padding: 1rem 5rem; */
+  background: var(--light-color);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.fakelandiaHeader__title {
+  font-size: 4rem;
+  color: var(--maroon-color);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fakelandiaMain {
+  /* display: flex;
+  flex-direction: row; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.main-nav {
+  margin: 1rem 1rem;
+  padding: 2rem;
+  text-align: center;
 }
 
-.card {
-  padding: 2em;
+.main-nav__list {
+  list-style-type: none;
+  font-family: poppins;
+  font-size: 2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.linkInActive {
+  color: var(--voilet-color);
+}
+.linkActive {
+  font-size: 2.2rem;
+}
+
+.linkActive:hover,
+.linkInActive:hover {
+  background-color: orange;
 }
