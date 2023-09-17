@@ -10,6 +10,7 @@
   box-sizing: border-box;
   font-family: "Bitter", serif;
   --light-color: #c4d46f;
+  --yellow-color: #fff26a;
   --maroon-color: #860c46;
   --darkGreen-color: #002f1b;
   --voilet-color: #4f036b;
@@ -17,25 +18,29 @@
 
 .fakelandiaHeader {
   /* padding: 1rem 5rem; */
-  background: var(--light-color);
+  background: var(--yellow-color);
 }
 .fakelandiaHeader__title {
   font-size: 4rem;
   color: var(--maroon-color);
 }
 
-.fakelandiaMain {
-  /* display: flex;
-  flex-direction: row; */
+.main-nav__list,
+.misdeedsTable__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .main-nav {
-  margin: 1rem 1rem;
-  padding: 2rem;
   text-align: center;
+  background-color: var(--light-color);
 }
 
 .main-nav__list {
+  /* justify-content: space-evenly; */
   list-style-type: none;
   font-family: poppins;
   font-size: 2rem;
