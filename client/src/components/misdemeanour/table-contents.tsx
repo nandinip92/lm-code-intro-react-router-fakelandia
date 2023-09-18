@@ -5,22 +5,19 @@ import { v4 as uuidv4 } from "uuid";
 
 export interface TableContentsProps {
   misdemeanours: Array<Misdemeanour>;
-  filter: string;
 }
 
 export const TableContents: React.FC<TableContentsProps> = ({
   misdemeanours,
-  filter,
-}) => {
-  const filteredData = misdemeanours.filter((m) => m.misdemeanour === filter);
-  return (
-    <>
-      {filteredData.map((misdemeanour) => (
+}) => (
+  <>
+    <div className="misdeedsTable__contents">
+      {misdemeanours.map((misdemeanour) => (
         <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
       ))}
-    </>
-  );
-};
+    </div>
+  </>
+);
 
 {
   /* <>
@@ -33,3 +30,14 @@ export const TableContents: React.FC<TableContentsProps> = ({
 </div>
 </> */
 }
+
+// {
+//     const filteredData = misdemeanours.filter((m) => m.misdemeanour === filter);
+//     return (
+//       <>
+//         {filteredData.map((misdemeanour) => (
+//           <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
+//         ))}
+//       </>
+//     );
+//   };

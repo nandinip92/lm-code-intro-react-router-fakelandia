@@ -1,11 +1,16 @@
-import React from "react";
+import { useRef } from "react";
 
-export interface FilterProps {
-  dropDownValue: string;
-  onChangeSelect: (newValue: string) => void;
-}
+// export interface FilterProps {
+//   dropDownValue: string;
+//   onChangeSelect: (newValue: string) => void;
+// }
 
-const Filter: React.FC<FilterProps> = ({ dropDownValue, onChangeSelect }) => {
+const Filter: React.FC = () => {
+  const inputRef = useRef<HTMLSelectElement>(null);
+  const handleClick = () => {
+    console.log("Filter Value--->", inputRef.current?.value);
+    return inputRef.current?.value;
+  };
   return (
     <>
       <div className="table__row">
@@ -13,10 +18,11 @@ const Filter: React.FC<FilterProps> = ({ dropDownValue, onChangeSelect }) => {
           <div className="column citizenId" />
           <div className="column date" />
           <select
+            ref={inputRef}
             className="column misdemeanour"
             id="midemeanoursFilter"
-            defaultValue={dropDownValue}
-            onChange={(event) => onChangeSelect(event.target.value)}
+            defaultValue="filter"
+            onChange={handleClick}
           >
             <option value="filter" disabled>
               Filter
