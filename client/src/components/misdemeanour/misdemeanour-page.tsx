@@ -7,7 +7,7 @@ import { TableContents } from "./table-contents";
 export const MisdemeanourPage: React.FC = () => {
   //const [loadData, setLoadData] = useState(0);
   const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("filter");
 
   useEffect(() => {
     const getMisdemeanours = async (amount: number) => {

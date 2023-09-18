@@ -7,8 +7,6 @@ export interface TableContentRows {
 export const TableContentRows: React.FC<TableContentRows> = ({
   misdemeanour,
 }) => {
-  const height = 1;
-  const width = 1;
   return (
     <>
       <div className="table__row">
@@ -17,7 +15,7 @@ export const TableContentRows: React.FC<TableContentRows> = ({
           <div className="column date">{misdemeanour.date}</div>
           <div className="column misdemeanour">{misdemeanour.misdemeanour}</div>
           <div className="column punishmentIdea">
-            <img src="https://picsum.photos/200" />;
+            <img src="https://picsum.photos/100" />
           </div>
         </div>
       </div>

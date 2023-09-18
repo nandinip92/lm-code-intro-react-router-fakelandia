@@ -18,7 +18,7 @@ const Filter: React.FC<FilterProps> = ({ dropDownValue, onChangeSelect }) => {
             defaultValue={dropDownValue}
             onChange={(event) => onChangeSelect(event.target.value)}
           >
-            <option value="filter" selected disabled>
+            <option value="filter" disabled>
               Filter
             </option>
             <option value="rudeness">Rudeness</option>
