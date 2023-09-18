@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Misdemeanour } from "../../types/misdemeanour.types";
 import Filter from "./filter";
+import { TableContents } from "./table-contents";
 
 export const MisdemeanourPage: React.FC = () => {
   //const [loadData, setLoadData] = useState(0);
   const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
-  const [filter, setFilter] = useState("Filter");
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     const getMisdemeanours = async (amount: number) => {
@@ -20,21 +21,29 @@ export const MisdemeanourPage: React.FC = () => {
       // console.log("<--- Misdemeanour JSON --->\n", json.misdemeanours);
       setMisdemeanours(json.misdemeanours);
     };
-    getMisdemeanours(1);
+    getMisdemeanours(30);
     console.log("<--- misdemeanours --->", misdemeanours);
-  });
+  }, [filter]);
 
   return (
-    <div className="misdeedsTable">
+    <div className="table">
       <Filter dropDownValue={filter} onChangeSelect={setFilter} />
 
-      <div className="misdeedsTable__header">
-        <h2> Citizen ID</h2>
-        <h2>Date</h2>
-        <h2>Misdemeanour</h2>
-        <h2>Punishment Idea</h2>
+      <div className="table__row table__row--header">
+        <div className="wrapper">
+          <div className="column citizenId"> Citizen_Id</div>
+          <div className="column date">Date</div>
+          <div className="column misdemeanour">Misdemeanour</div>
+          <div className="column punishmentIdea">Punishment Idea</div>
+        </div>
       </div>
-      <div className="misdeedsTable__contents"></div>
+      <div className="misdeedsTable__contents">
+        <TableContents misdemeanours={misdemeanours} filter={filter} />
+        {/* <div className="misdeedsTable__contents">
+        {misdemeanours.map((misdemeanour) => (
+          <TableContents misdemeanour={misdemeanour} />
+        ))} */}
+      </div>
     </div>
   );
 };

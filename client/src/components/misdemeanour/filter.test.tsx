@@ -5,7 +5,7 @@ import Filter, { FilterProps } from "./filter";
 describe("<Filter/>", () => {
   it(`Given the required props, 
     when the component is rendered, 
-    then What is 2 + 2 : label must be present`, () => {
+    then Select DropDown box must be present`, () => {
     //Arrange
     const requiredProps: FilterProps = {
       dropDownValue: "",
@@ -13,47 +13,47 @@ describe("<Filter/>", () => {
     };
     //ACT
     render(<Filter {...requiredProps} />);
-    const input = screen.getByLabelText("Filter");
+    const input = screen.getByRole("select");
 
     //Assert
     expect(input).toBeInTheDocument();
   });
 
   it(`Given the required props,
-  If we give input fields certain values through props, do they display that value?`, () => {
+  If we Select certain option, do they get selected value`, () => {
     //Arrange
+    const mockOnChange = jest.fn();
     const requiredProps: FilterProps = {
-      dropDownValue: "4",
-      onChangeSelect: () => {},
+      dropDownValue: "rudeness",
+      onChangeSelect: mockOnChange,
     };
-    //ACT
+    const event = { target: { value: "rudeness" } };
     //ACT
     render(<Filter {...requiredProps} />);
-    const input = screen.getByLabelText<HTMLInputElement>("What is 2 + 2 :");
-    expect(input.value).toBe("4");
+    const input = screen.getByRole<HTMLInputElement>("option");
+    fireEvent.change(input, event);
+    expect(mockOnChange).toHaveBeenCalledTimes(1);
+    expect(mockOnChange).toHaveBeenCalledWith("rudeness");
   });
 
   it(`Given the required props,
-  when the text is typed in the text box, 
-  input field should call its onChange function and pass it the correct parameters`, () => {
+  If we Select certain option, do does it get selected`, () => {
     ///Arrange
     const mockOnChange = jest.fn();
     const requiredProps: FilterProps = {
       dropDownValue: "",
       onChangeSelect: mockOnChange,
     };
-    const event1 = { target: { value: "4" } };
-    const event2 = { target: { value: "Not 4" } };
+    const event = { target: { value: "vegetables" } };
+
     //ACT
     render(<Filter {...requiredProps} />);
-    const input = screen.getByLabelText<HTMLInputElement>("What is 2 + 2 :");
+    const input = screen.getByRole<HTMLInputElement>("option");
 
-    fireEvent.change(input, event1);
+    fireEvent.change(input, event);
     expect(mockOnChange).toHaveBeenCalledTimes(1);
-    expect(mockOnChange).toHaveBeenCalledWith("4");
-
-    fireEvent.change(input, event2);
-    expect(mockOnChange).toHaveBeenCalledTimes(2);
-    expect(mockOnChange).toHaveBeenCalledWith("Not 4");
+    expect(mockOnChange).toHaveBeenCalledWith("vegetables");
+    fireEvent.select(input, event);
+    expect(mockOnChange).toBe(true);
   });
 });

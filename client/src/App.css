@@ -12,8 +12,8 @@
   --light-color: #c4d46f;
   --yellow-color: #fff26a;
   --maroon-color: #860c46;
-  --darkGreen-color: #002f1b;
   --voilet-color: #4f036b;
+  --bronze-color: #cd7f32;
 }
 
 .fakelandiaHeader {
@@ -25,13 +25,10 @@
   color: var(--maroon-color);
 }
 
-.main-nav__list,
-.misdeedsTable__header {
+.main-nav__list {
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: space-between;
-  align-items: flex-start;
 }
 
 .main-nav {
@@ -56,4 +53,46 @@
 .linkActive:hover,
 .linkInActive:hover {
   background-color: orange;
+}
+
+.table {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.table__row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 2rem;
+  border-bottom: 1px solid #dce1ea;
+  box-sizing: border-box;
+}
+.table__row--header {
+  box-shadow: 0 1px 2px 0 #e9effa;
+  color: var(--bronze-color);
+
+  .column {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  /* column-gap: 2rem; */
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.column {
+  /* flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100;
+  vertical-align: top; */
+  font-size: 2rem;
+  -webkit-font-smoothing: antialiased;
 }
