@@ -5,14 +5,15 @@ import React, { useRef } from "react";
 //   inputRef: React.RefObject<HTMLSelectElement>;
 // }
 
-const Filter: React.FC<{ filter: (newValue: string) => void }> = ({
-  filter,
+const Filter: React.FC<{ onChangeFilter: (newValue: string) => void }> = ({
+  onChangeFilter,
 }) => {
   const inputRef = useRef<HTMLSelectElement>(null);
+
   const handleClick = (event: React.ChangeEvent<HTMLSelectElement>) => {
     console.log("Filter Value--->", inputRef.current?.value);
     console.log("eventValue--->", event.target.value);
-    filter(event.target.value);
+    onChangeFilter(event.target.value);
     return inputRef.current?.value;
   };
   return (
@@ -24,7 +25,7 @@ const Filter: React.FC<{ filter: (newValue: string) => void }> = ({
           <select
             ref={inputRef}
             className="column misdemeanour"
-            id="midemeanoursFilter"
+            data-testid="midemeanoursFilter"
             defaultValue=""
             onChange={(event) => handleClick(event)}
           >

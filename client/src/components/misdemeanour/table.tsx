@@ -12,7 +12,7 @@ export const Table: React.FC<TableProps> = ({ misdemeanours }) => {
   const [filter, setFilter] = useState("filter");
   return (
     <>
-      <Filter filter={setFilter} />
+      <Filter onChangeFilter={setFilter} />
       <TableHeader />
       <TableContents misdemeanours={misdemeanours} filter={filter} />
     </>
