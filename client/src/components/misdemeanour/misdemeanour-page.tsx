@@ -1,9 +1,6 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Misdemeanour } from "../../types/misdemeanour.types";
-// import Filter from "./filter";
-// import { TableContents } from "./table-contents";
-// import { TableHeader } from "./table-header";
 import { Table } from "./table";
 
 export const FilterContext = React.createContext(false);
