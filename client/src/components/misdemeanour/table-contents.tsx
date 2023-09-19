@@ -5,39 +5,26 @@ import { v4 as uuidv4 } from "uuid";
 
 export interface TableContentsProps {
   misdemeanours: Array<Misdemeanour>;
+  filter: string;
 }
 
 export const TableContents: React.FC<TableContentsProps> = ({
   misdemeanours,
-}) => (
-  <>
-    <div className="misdeedsTable__contents">
-      {misdemeanours.map((misdemeanour) => (
-        <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
-      ))}
-    </div>
-  </>
-);
+  filter,
+}) => {
+  //console.log("---TableContents---", filter);
 
-{
-  /* <>
-<div className="table__row">
-  <div className="wrapper">
-    {filteredData.map((misdemeanour) => (
-      <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
-    ))}
-  </div>
-</div>
-</> */
-}
-
-// {
-//     const filteredData = misdemeanours.filter((m) => m.misdemeanour === filter);
-//     return (
-//       <>
-//         {filteredData.map((misdemeanour) => (
-//           <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
-//         ))}
-//       </>
-//     );
-//   };
+  const records =
+    filter !== "filter"
+      ? misdemeanours.filter((m) => m.misdemeanour === filter)
+      : misdemeanours;
+  return (
+    <>
+      <div className="misdeedsTable__contents">
+        {records.map((misdemeanour) => (
+          <TableContentRows key={uuidv4()} misdemeanour={misdemeanour} />
+        ))}
+      </div>
+    </>
+  );
+};

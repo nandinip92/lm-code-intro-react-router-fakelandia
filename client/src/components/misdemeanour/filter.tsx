@@ -1,14 +1,18 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
+//import { Misdemeanour } from "../../types/misdemeanour.types";
 
 // export interface FilterProps {
-//   dropDownValue: string;
-//   onChangeSelect: (newValue: string) => void;
+//   inputRef: React.RefObject<HTMLSelectElement>;
 // }
 
-const Filter: React.FC = () => {
+const Filter: React.FC<{ filter: (newValue: string) => void }> = ({
+  filter,
+}) => {
   const inputRef = useRef<HTMLSelectElement>(null);
-  const handleClick = () => {
+  const handleClick = (event: React.ChangeEvent<HTMLSelectElement>) => {
     console.log("Filter Value--->", inputRef.current?.value);
+    console.log("eventValue--->", event.target.value);
+    filter(event.target.value);
     return inputRef.current?.value;
   };
   return (
@@ -21,8 +25,8 @@ const Filter: React.FC = () => {
             ref={inputRef}
             className="column misdemeanour"
             id="midemeanoursFilter"
-            defaultValue="filter"
-            onChange={handleClick}
+            defaultValue=""
+            onChange={(event) => handleClick(event)}
           >
             <option value="filter" disabled>
               Filter
