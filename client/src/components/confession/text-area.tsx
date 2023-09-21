@@ -20,6 +20,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
       <div className="confessions__row">
         <textarea
           className="confessions textArea"
+          data-testid="confessionsTextArea"
           value={textArea}
           onChange={(event) => handleChange(event)}
         ></textarea>
