@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Subject } from "./subject";
 import { ReasonForContact } from "./reason-for-contact";
+import { TextArea } from "./text-area";
 
 export const Confession = () => {
   const [subjectLine, setSubjectLine] = useState("");
@@ -18,13 +19,14 @@ export const Confession = () => {
         However, if you are just having a hard day and need to vent then your
         are welcome to contact us here too. Up to you
       </h3>
-
-      <Subject subjectLine={subjectLine} onChangeField={setSubjectLine} />
-      <ReasonForContact
-        reasonForContact={reasonForContact}
-        onChangeField={setReasonForContact}
-      />
-      {/*<TextArea onChangeTextArea={setTextArea} */}
+      <div className="confessions">
+        <Subject subjectLine={subjectLine} onChangeField={setSubjectLine} />
+        <ReasonForContact
+          reasonForContact={reasonForContact}
+          onChangeField={setReasonForContact}
+        />
+        <TextArea textArea={textArea} onChangeTextArea={setTextArea} />
+      </div>
     </>
   );
 };

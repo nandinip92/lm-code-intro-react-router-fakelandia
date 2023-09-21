@@ -100,3 +100,13 @@
 .confessions {
   font-size: 1.5rem;
 }
+.confession_rowWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+}
+.textArea {
+  width: 50rem;
+  height: 20rem;
+}
