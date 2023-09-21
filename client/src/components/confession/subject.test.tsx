@@ -4,7 +4,7 @@ import { Subject, SubjectProps } from "./subject";
 describe("<Subject/>", () => {
   it(`Given the required props, 
     when the component is rendered, 
-    then Species Name label must be present`, () => {
+    then Subject label must be present`, () => {
     //Arrange
     const requiredProps: SubjectProps = {
       subjectLine: "",
