@@ -1,5 +1,7 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useEffect } from "react";
+
+import { useState } from "react";
+import { validateSubject } from "./validate/validate-fields";
 
 export interface SubjectProps {
   subjectLine: string;
@@ -9,12 +11,24 @@ export const Subject: React.FC<SubjectProps> = ({
   subjectLine,
   onChangeField,
 }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [isChecking, setIsChecking] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(
+    undefined
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChangeField(event.target.value);
-    return inputRef.current?.value;
+    setIsChecking(true);
+    return onChangeField(event.target.value);
   };
+
+  useEffect(() => {
+    if (isChecking) {
+      const error = validateSubject(subjectLine);
+      if (error !== undefined) {
+        setErrorMessage(error[1]);
+      }
+    }
+  }, [handleChange]);
   return (
     <>
       <div className="confessions__row">
@@ -30,6 +44,9 @@ export const Subject: React.FC<SubjectProps> = ({
             onChange={(event) => handleChange(event)}
           />
         </div>
+        {errorMessage !== undefined && (
+          <p className="errorMessages">{errorMessage}</p>
+        )}
       </div>
     </>
   );
