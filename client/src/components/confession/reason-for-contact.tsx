@@ -12,9 +12,6 @@ export const ReasonForContact: React.FC<ReasonForContactProps> = ({
   const inputRef = useRef<HTMLSelectElement>(null);
 
   const handleClick = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    // console.log("Reason--->", inputRef.current?.value);
-    // console.log("eventValue--->", event.target.value);
-
     onChangeField(event.target.value);
     return inputRef.current?.value;
   };
