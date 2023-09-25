@@ -11,7 +11,7 @@ export const Subject: React.FC<SubjectProps> = ({
   subjectLine,
   onChangeField,
 }) => {
-  const [isChecking, setIsChecking] = useState(false);
+  const [isChecking, setIsChecking] = useState(false); // This state is used for not to display the error message on first render
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
     undefined
   );
