@@ -13,6 +13,9 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
   );
   const [valid, setValid] = useState(false);
   const [textArea, setTextArea] = useState("");
+  const [postIsSuccess, setPostIsSuccess] = useState<string | undefined>(
+    undefined
+  );
 
   const validate = () => {
     const isValidSubject = validateSubject(subjectLine);
@@ -26,8 +29,36 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
     setValid(isValid);
   }, [subjectLine, reasonForContact]);
 
-  const submitForm = () => {
+  // const clearAll = () => {
+  //   setSubjectLine("");
+  //   setReasonForContact("reason for confession");
+  //   setValid(false);
+  //   setTextArea("");
+  //   //setPostIsSuccess(undefined)
+  // };
+  const submitForm = async () => {
     onSubmit && onSubmit();
+    const confessForm = {
+      subject: subjectLine,
+      reason: reasonForContact, // either a MisdemeanourKind OR the string `just-talk`
+      details: textArea,
+    };
+    try {
+      const apiResponse = await fetch("http://localhost:8080/api/confess", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(confessForm),
+      });
+      const json = await apiResponse.json();
+      console.log("Fetch POST response--->", json);
+      if (json.success === true && json.justTalked === false) {
+        console.log(json.message);
+        setPostIsSuccess(json.message);
+      }
+    } catch (error) {
+      console.log(`ERROR:${error}`);
+    }
+    //clearAll();
   };
   return (
     <>
@@ -39,6 +70,9 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
         However, if you are just having a hard day and need to vent then your
         are welcome to contact us here too. Up to you
       </h3>
+      {postIsSuccess !== undefined && (
+        <p className="postMessage">{postIsSuccess}</p>
+      )}
       <div className="confessions">
         <Subject subjectLine={subjectLine} onChangeField={setSubjectLine} />
         <ReasonForContact
