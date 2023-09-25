@@ -12,9 +12,11 @@ export const Table: React.FC<TableProps> = ({ misdemeanours }) => {
   const [filter, setFilter] = useState("filter");
   return (
     <>
-      <Filter onChangeFilter={setFilter} />
-      <TableHeader />
-      <TableContents misdemeanours={misdemeanours} filter={filter} />
+      <div className="table">
+        <Filter onChangeFilter={setFilter} />
+        <TableHeader />
+        <TableContents misdemeanours={misdemeanours} filter={filter} />
+      </div>
     </>
   );
 };

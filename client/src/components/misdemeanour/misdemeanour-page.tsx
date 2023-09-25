@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Misdemeanour } from "../../types/misdemeanour.types";
 import { Table } from "./table";
+import { LoadingSpinner } from "./loading-spinner";
 
 export const FilterContext = React.createContext(false);
 
@@ -11,25 +12,42 @@ export const MisdemeanourPage: React.FC = () => {
 
   useEffect(() => {
     const getMisdemeanours = async (amount: number) => {
-      const apiResponse = await fetch(
-        `http://localhost:8080/api/misdemeanours/${amount}`
-      );
-      if (isFetching) {
-        const json = (await apiResponse.json()) as {
-          misdemeanours: Misdemeanour[];
-        };
-        // console.log("<--- Misdemeanour JSON --->\n", json.misdemeanours);
+      try {
+        const apiResponse = await fetch(
+          `http://localhost:8080/api/misdemeanours/${amount}`
+        );
+        if (isFetching) {
+          const json = (await apiResponse.json()) as {
+            misdemeanours: Misdemeanour[];
+          };
+          setMisdemeanours(json.misdemeanours);
+        }
         setIsFetching(false);
-        setMisdemeanours(json.misdemeanours);
+        // console.log("isLoading...", isFetching);
+      } catch (error) {
+        setIsFetching(false);
+        console.log(error);
       }
     };
-    getMisdemeanours(30);
+    getMisdemeanours(20);
+
     console.log("<--- misdemeanours --->", misdemeanours);
   });
 
   return (
-    <div className="table">
-      <Table misdemeanours={misdemeanours} />
+    <div>
+      {isFetching ? (
+        <LoadingSpinner />
+      ) : (
+        <Table misdemeanours={misdemeanours} />
+      )}
     </div>
   );
 };
+
+{
+  /* </div>
+    <div className="table">
+      <Table misdemeanours={misdemeanours} />
+    </div> */
+}
