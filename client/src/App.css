@@ -128,3 +128,9 @@
   background-color: grey;
   color: #e9effa;
 }
+
+.postMessage {
+  font-size: 2rem;
+  font-weight: 900;
+  color: greenyellow;
+}
