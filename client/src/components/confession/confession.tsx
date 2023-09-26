@@ -11,7 +11,6 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
   const [reasonForContact, setReasonForContact] = useState(
     "reason for confession"
   );
-  const [valid, setValid] = useState(false);
   const [textArea, setTextArea] = useState("");
   const [postIsSuccess, setPostIsSuccess] = useState<string | undefined>(
     undefined
@@ -23,11 +22,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
     return isValidSubject[0] && isValidResaon[0];
   };
 
-  useEffect(() => {
-    const isValid = validate();
-    console.log("isValid--->", isValid);
-    setValid(isValid);
-  }, [subjectLine, reasonForContact]);
+  const isValid = validate();
 
   // const clearAll = () => {
   //   setSubjectLine("");
@@ -86,7 +81,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
           title="Submit"
           value="Confess"
           onClick={submitForm}
-          disabled={!valid}
+          disabled={!isValid}
         >
           Confess
         </button>
