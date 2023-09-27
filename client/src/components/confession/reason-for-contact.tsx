@@ -1,8 +1,9 @@
 import React from "react";
 import { useRef } from "react";
+import { MisdemeanourKind } from "../../types/misdemeanour.types";
 
 export interface ReasonForContactProps {
-  reasonForContact: string;
+  reasonForContact: string | MisdemeanourKind;
   onChangeField: (newValue: string) => void;
 }
 export const ReasonForContact: React.FC<ReasonForContactProps> = ({
@@ -12,8 +13,8 @@ export const ReasonForContact: React.FC<ReasonForContactProps> = ({
   const inputRef = useRef<HTMLSelectElement>(null);
 
   const handleClick = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onChangeField(event.target.value);
-    return inputRef.current?.value;
+    onChangeField(event.target.value as MisdemeanourKind);
+    return inputRef.current?.value as MisdemeanourKind;
   };
   return (
     <>

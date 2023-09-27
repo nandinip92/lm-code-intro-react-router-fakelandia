@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Subject } from "./subject";
 import { ReasonForContact } from "./reason-for-contact";
 import { TextArea } from "./text-area";
+import { MisdemeanourKind } from "../../types/misdemeanour.types";
 import { validateSubject, validateReason } from "./validate/validate-fields";
+import { misdemeanourListContext } from "../misdemeanour/misdemeanour-page";
 
 export const Confession: React.FC<{ onSubmit?: () => void }> = ({
   onSubmit,
 }) => {
+  const misdemeanoursList = useContext(misdemeanourListContext);
+  console.log("--->Confession: misdemeanoursList", misdemeanoursList);
   const [subjectLine, setSubjectLine] = useState("");
-  const [reasonForContact, setReasonForContact] = useState(
-    "reason for confession"
-  );
+  const [reasonForContact, setReasonForContact] = useState<
+    MisdemeanourKind | string
+  >("reason for confession");
   const [textArea, setTextArea] = useState("");
   const [postIsSuccess, setPostIsSuccess] = useState<string | undefined>(
     undefined
@@ -24,13 +28,6 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
 
   const isValid = validate();
 
-  // const clearAll = () => {
-  //   setSubjectLine("");
-  //   setReasonForContact("reason for confession");
-  //   setValid(false);
-  //   setTextArea("");
-  //   //setPostIsSuccess(undefined)
-  // };
   const submitForm = async () => {
     onSubmit && onSubmit();
     const confessForm = {
@@ -48,7 +45,13 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
       console.log("Fetch POST response--->", json);
       if (json.success === true && json.justTalked === false) {
         console.log(json.message);
+        misdemeanoursList.push({
+          citizenId: Math.floor(11 + Math.random() * 37 * Math.random() * 967),
+          misdemeanour: reasonForContact as MisdemeanourKind,
+          date: new Date().toLocaleDateString(),
+        });
         setPostIsSuccess(json.message);
+        console.log("ML--->", misdemeanoursList);
       }
     } catch (error) {
       console.log(`ERROR:${error}`);
