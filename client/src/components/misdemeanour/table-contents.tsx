@@ -1,18 +1,19 @@
 import React from "react";
+import { useContext } from "react";
 import { Misdemeanour } from "../../types/misdemeanour.types";
 import { TableContentRows } from "./table-content-rows";
+import { misdemeanourListContext } from "./misdemeanour-page";
 import { v4 as uuidv4 } from "uuid";
 
 export interface TableContentsProps {
-  misdemeanours: Array<Misdemeanour>;
   filter: string;
 }
 
-export const TableContents: React.FC<TableContentsProps> = ({
-  misdemeanours,
-  filter,
-}) => {
+export const TableContents: React.FC<TableContentsProps> = ({ filter }) => {
   //console.log("---TableContents---", filter);
+  const misdemeanours: Array<Misdemeanour> = useContext(
+    misdemeanourListContext
+  );
 
   const records =
     filter !== "filter"

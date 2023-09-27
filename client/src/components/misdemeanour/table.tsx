@@ -1,21 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import { Misdemeanour } from "../../types/misdemeanour.types";
 import Filter from "./filter";
 import { TableContents } from "./table-contents";
 import { TableHeader } from "./table-header";
 
-interface TableProps {
-  misdemeanours: Array<Misdemeanour>;
-}
-export const Table: React.FC<TableProps> = ({ misdemeanours }) => {
+// interface TableProps {
+//   misdemeanours: Array<Misdemeanour>;
+// }
+export const Table: React.FC = () => {
   const [filter, setFilter] = useState("filter");
   return (
     <>
       <div className="table">
         <Filter onChangeFilter={setFilter} />
         <TableHeader />
-        <TableContents misdemeanours={misdemeanours} filter={filter} />
+        <TableContents filter={filter} />
       </div>
     </>
   );

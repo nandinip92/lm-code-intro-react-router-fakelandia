@@ -4,7 +4,10 @@ import { Misdemeanour } from "../../types/misdemeanour.types";
 import { Table } from "./table";
 import { LoadingSpinner } from "./loading-spinner";
 
-export const FilterContext = React.createContext(false);
+// export const FilterContext = React.createContext(false);
+export const misdemeanourListContext = React.createContext<Array<Misdemeanour>>(
+  []
+);
 
 export const MisdemeanourPage: React.FC = () => {
   const [isFetching, setIsFetching] = useState(true);
@@ -29,7 +32,7 @@ export const MisdemeanourPage: React.FC = () => {
         console.log(error);
       }
     };
-    getMisdemeanours(20);
+    getMisdemeanours(10);
 
     console.log("<--- misdemeanours --->", misdemeanours);
   });
@@ -39,13 +42,22 @@ export const MisdemeanourPage: React.FC = () => {
       {isFetching ? (
         <LoadingSpinner />
       ) : (
-        <Table misdemeanours={misdemeanours} />
+        <misdemeanourListContext.Provider value={misdemeanours}>
+          <Table />
+        </misdemeanourListContext.Provider>
       )}
     </div>
   );
 };
 
 {
+  // <div>
+  //     {isFetching ? (
+  //       <LoadingSpinner />
+  //     ) : (
+  //       <Table misdemeanours={misdemeanours} />
+  //     )}
+  //   </div>
   /* </div>
     <div className="table">
       <Table misdemeanours={misdemeanours} />
