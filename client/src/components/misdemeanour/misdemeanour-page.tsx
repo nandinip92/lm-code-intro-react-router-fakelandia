@@ -49,17 +49,3 @@ export const MisdemeanourPage: React.FC = () => {
     </div>
   );
 };
-
-{
-  // <div>
-  //     {isFetching ? (
-  //       <LoadingSpinner />
-  //     ) : (
-  //       <Table misdemeanours={misdemeanours} />
-  //     )}
-  //   </div>
-  /* </div>
-    <div className="table">
-      <Table misdemeanours={misdemeanours} />
-    </div> */
-}
