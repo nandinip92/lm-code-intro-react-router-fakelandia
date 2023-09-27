@@ -25,14 +25,14 @@ describe("<button/>", () => {
     expect(button).toBeDisabled();
     expect(input).toBeDisabled();
   });
-  it(`Given the required props, 
-      when the component is rendered, 
-      then button is disabled `, async () => {
+  it(`When the component is rendered and
+      Given userInputs are valid, 
+      then button is endabled `, async () => {
     //Act
     render(<Confession />);
     const input = screen.getByLabelText("Subject:");
     //Information related to act: https://legacy.reactjs.org/docs/testing-recipes.html#act
-    await act(async () => await userEvent.type(input, "Helloooo...!!!"));
+    await act(async () => userEvent.type(input, "Helloooo...!!!"));
     const reasonsInput = screen.getByLabelText("Reason for Confession:");
     await act(
       async () => await userEvent.selectOptions(reasonsInput, "vegetables")
@@ -49,7 +49,7 @@ describe("<button/>", () => {
     render(<Confession />);
 
     const input = screen.getByLabelText("Subject:");
-    await act(async () => await userEvent.type(input, "Hi")); //https://legacy.reactjs.org/docs/testing-recipes.html#act
+    await act(async () => userEvent.type(input, "Hi")); //https://legacy.reactjs.org/docs/testing-recipes.html#act
     const error =
       "Subject line must min of 5 characters and maximum of 15 characters";
     const errorElement = screen.getByText(error);
