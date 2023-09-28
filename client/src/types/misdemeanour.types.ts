@@ -14,3 +14,9 @@ export type Misdemeanour = {
   misdemeanour: MisdemeanourKind;
   date: string; // we'll stringify this for easy sending via HTTP rather than storing the full Date object
 };
+
+export interface MisdemeanourContext {
+  misdemeanours: Array<Misdemeanour>;
+  setMisdemeanours: React.Dispatch<React.SetStateAction<Misdemeanour[]>>;
+  //setMisdemeanours :(misdemeanours:Array<Misdemeanour>)=>void
+}

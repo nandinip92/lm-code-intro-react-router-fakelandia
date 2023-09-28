@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import { Misdemeanour } from "../../types/misdemeanour.types";
+import {
+  Misdemeanour,
+  MisdemeanourContext,
+} from "../../types/misdemeanour.types";
 import { Table } from "./table";
 import { LoadingSpinner } from "./loading-spinner";
+import { misdemeanourListContext } from "../router/router";
 
 // export const FilterContext = React.createContext(false);
-export const misdemeanourListContext = React.createContext<Array<Misdemeanour>>(
-  []
-);
+// export const misdemeanourListContext = React.createContext<Array<Misdemeanour>>(
+//   []
+// );
 
 export const MisdemeanourPage: React.FC = () => {
   const [isFetching, setIsFetching] = useState(true);
-  const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
+  // const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
+  const { misdemeanours, setMisdemeanours } = useContext(
+    misdemeanourListContext
+  ) as MisdemeanourContext;
 
   useEffect(() => {
     const getMisdemeanours = async (amount: number) => {
@@ -37,15 +44,11 @@ export const MisdemeanourPage: React.FC = () => {
     console.log("<--- misdemeanours --->", misdemeanours);
   });
 
-  return (
-    <div>
-      {isFetching ? (
-        <LoadingSpinner />
-      ) : (
-        <misdemeanourListContext.Provider value={misdemeanours}>
-          <Table />
-        </misdemeanourListContext.Provider>
-      )}
-    </div>
-  );
+  return <div>{isFetching ? <LoadingSpinner /> : <Table />}</div>;
 };
+
+{
+  /* <misdemeanourListContext.Provider value={misdemeanours}>
+<Table />
+</misdemeanourListContext.Provider> */
+}
