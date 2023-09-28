@@ -8,14 +8,8 @@ import { Table } from "./table";
 import { LoadingSpinner } from "./loading-spinner";
 import { misdemeanourListContext } from "../router/router";
 
-// export const FilterContext = React.createContext(false);
-// export const misdemeanourListContext = React.createContext<Array<Misdemeanour>>(
-//   []
-// );
-
 export const MisdemeanourPage: React.FC = () => {
   const [isFetching, setIsFetching] = useState(true);
-  // const [misdemeanours, setMisdemeanours] = useState<Array<Misdemeanour>>([]);
   const { misdemeanours, setMisdemeanours } = useContext(
     misdemeanourListContext
   ) as MisdemeanourContext;
@@ -46,9 +40,3 @@ export const MisdemeanourPage: React.FC = () => {
 
   return <div>{isFetching ? <LoadingSpinner /> : <Table />}</div>;
 };
-
-{
-  /* <misdemeanourListContext.Provider value={misdemeanours}>
-<Table />
-</misdemeanourListContext.Provider> */
-}

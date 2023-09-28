@@ -15,7 +15,6 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
   const { misdemeanours } = useContext(
     misdemeanourListContext
   ) as MisdemeanourContext;
-  console.log("--->Confession: misdemeanoursList", misdemeanours);
   const [subjectLine, setSubjectLine] = useState("");
   const [reasonForContact, setReasonForContact] = useState<
     MisdemeanourKind | string
@@ -56,7 +55,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
           date: new Date().toLocaleDateString(),
         });
         setPostIsSuccess(json.message);
-        console.log("ML--->", misdemeanours);
+        console.log("Adding confession to list--->", misdemeanours);
       }
     } catch (error) {
       console.log(`ERROR:${error}`);
