@@ -56,6 +56,9 @@
   background-color: orange;
 }
 
+.homePage {
+  text-align: center;
+}
 .table {
   font-family: "Courier New", Courier, monospace;
 }
