@@ -14,6 +14,7 @@
   --maroon-color: #860c46;
   --voilet-color: #4f036b;
   --bronze-color: #cd7f32;
+  --orangered-color: #ff4500;
 }
 
 .fakelandiaHeader {
@@ -59,7 +60,8 @@
   font-family: "Courier New", Courier, monospace;
 }
 
-.table__row {
+.table__row,
+.table__row--selfConfession {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -77,6 +79,9 @@
     font-size: 1.5rem;
     font-weight: bold;
   }
+}
+.table__row--selfConfession {
+  color: var(--orangered-color);
 }
 
 .wrapper {
