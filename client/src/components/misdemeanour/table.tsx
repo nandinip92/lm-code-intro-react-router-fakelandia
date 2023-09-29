@@ -8,7 +8,7 @@ import { TableHeader } from "./table-header";
 //   misdemeanours: Array<Misdemeanour>;
 // }
 export const Table: React.FC = () => {
-  const [filter, setFilter] = useState("filter");
+  const [filter, setFilter] = useState("no_filter");
   return (
     <>
       <div className="table">

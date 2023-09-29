@@ -26,12 +26,10 @@ const Filter: React.FC<{ onChangeFilter: (newValue: string) => void }> = ({
             ref={inputRef}
             className="column misdemeanour"
             data-testid="midemeanoursFilter"
-            defaultValue="filter"
+            defaultValue="no_filter"
             onChange={(event) => handleClick(event)}
           >
-            <option value="filter" disabled>
-              Filter
-            </option>
+            <option value="no_filter">NoFilter</option>
             <option value="rudeness">Rudeness</option>
             <option value="vegetables">Vegetables</option>
             <option value="lift">Lift</option>
