@@ -37,7 +37,7 @@ export const ReasonForContact: React.FC<ReasonForContactProps> = ({
             <option value="vegetables">Vegetables</option>
             <option value="lift">Lift</option>
             <option value="united">united</option>
-            <option value="I just want to talk">I Just Want to Talk</option>
+            <option value="just-talk">I Just Want to Talk</option>
           </select>
         </div>
       </div>
