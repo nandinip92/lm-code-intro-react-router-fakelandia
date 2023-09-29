@@ -17,18 +17,15 @@ export const Subject: React.FC<SubjectProps> = ({
   );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecking(true);
-    return onChangeField(event.target.value);
-  };
-
-  useEffect(() => {
     if (isChecking) {
       const error = validateSubject(subjectLine);
       if (error !== undefined) {
         setErrorMessage(error[1]);
       }
     }
-  }, [handleChange]);
+    setIsChecking(true);
+    return onChangeField(event.target.value);
+  };
   return (
     <>
       <div className="confessions__row">
