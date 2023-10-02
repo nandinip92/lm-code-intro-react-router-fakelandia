@@ -1,6 +1,33 @@
 import { Outlet } from "react-router-dom";
 import Header from "../header/header";
 import { Footer } from "../footer/footer";
+import { MisdemeanoursListProvider } from "../hooks/misdemeanour_list_context";
+
+export const MainLayout = () => {
+  return (
+    <>
+      <Header />
+
+      <main className="fakelandiaMain">
+        <MisdemeanoursListProvider>
+          <Outlet />
+        </MisdemeanoursListProvider>
+      </main>
+
+      <Footer />
+    </>
+  );
+};
+
+/*
+************************************************************************
+* Following is the code used when I have created the useContext inside *
+* the main-layout component                                            *            
+************************************************************************
+
+import { Outlet } from "react-router-dom";
+import Header from "../header/header";
+import { Footer } from "../footer/footer";
 import React from "react";
 import { useState, useEffect } from "react";
 import {
@@ -58,3 +85,4 @@ export const MainLayout = () => {
     </>
   );
 };
+*/
