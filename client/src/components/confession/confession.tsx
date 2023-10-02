@@ -1,21 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Subject } from "./subject";
 import { ReasonForContact } from "./reason-for-contact";
 import { TextArea } from "./text-area";
-import {
-  MisdemeanourContext,
-  MisdemeanourKind,
-} from "../../types/misdemeanour.types";
+import { MisdemeanourKind } from "../../types/misdemeanour.types";
 import { validateSubject, validateReason } from "./validate/validate-fields";
-import { misdemeanourListContext } from "../layouts/main_layouts";
-//import { misdemeanourListContext } from "../router/router";
+
+import { useMisdemeanoursList } from "../hooks/useMisdemeanoursList";
 
 export const Confession: React.FC<{ onSubmit?: () => void }> = ({
   onSubmit,
 }) => {
-  const { misdemeanours } = useContext(
-    misdemeanourListContext
-  ) as MisdemeanourContext;
+  const { misdemeanours } = useMisdemeanoursList();
   const [subjectLine, setSubjectLine] = useState("");
   const [reasonForContact, setReasonForContact] = useState<
     MisdemeanourKind | string

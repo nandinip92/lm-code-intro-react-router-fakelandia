@@ -1,18 +1,14 @@
 import React from "react";
-import { useContext } from "react";
-import { MisdemeanourContext } from "../../types/misdemeanour.types";
 import { TableContentRows } from "./table-content-rows";
 import { v4 as uuidv4 } from "uuid";
-import { misdemeanourListContext } from "../layouts/main_layouts";
+import { useMisdemeanoursList } from "../hooks/useMisdemeanoursList";
 
 export interface TableContentsProps {
   filter: string;
 }
 
 export const TableContents: React.FC<TableContentsProps> = ({ filter }) => {
-  const { misdemeanours } = useContext(
-    misdemeanourListContext
-  ) as MisdemeanourContext;
+  const { misdemeanours } = useMisdemeanoursList();
   //Since we are pulling 10 records from the server initially, the rest of the records are considered as self-confessed data from the confessions page
   const selfConfessedMisdemeanour = misdemeanours
     .slice(10)

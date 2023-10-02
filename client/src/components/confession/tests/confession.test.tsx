@@ -2,7 +2,17 @@ import { render, screen } from "@testing-library/react";
 import { Confession } from "../confession";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
+import * as MisdemeanoursContext from "../../hooks/useMisdemeanoursList";
 
+const context = { misdemeanours: [], setMisdemeanours: () => {} };
+beforeEach(() => {
+  jest
+    .spyOn(MisdemeanoursContext, "useMisdemeanoursList")
+    .mockReturnValue(context);
+});
+afterEach(() => {
+  jest.clearAllMocks();
+});
 describe("<button/>", () => {
   it(`Given the required props, 
       when the component is rendered, 

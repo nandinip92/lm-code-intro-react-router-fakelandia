@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { MisdemeanourContext } from "../../types/misdemeanour.types";
-import { misdemeanourListContext } from "../layouts/main_layouts";
+import { useMisdemeanoursList } from "../hooks/useMisdemeanoursList";
+
 export const Home: React.FC = () => {
-  const { misdemeanours } = useContext(
-    misdemeanourListContext
-  ) as MisdemeanourContext;
+  const { misdemeanours } = useMisdemeanoursList();
   const confessionsToday = misdemeanours.length - 10;
   return (
     <>
