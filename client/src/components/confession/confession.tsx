@@ -32,7 +32,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
     onSubmit && onSubmit();
     const confessForm = {
       subject: subjectLine,
-      reason: ReasonForConfession, // either a MisdemeanourKind OR the string `just-talk`
+      reason: reasonForConfession, // either a MisdemeanourKind OR the string `just-talk`
       details: textArea,
     };
     try {
