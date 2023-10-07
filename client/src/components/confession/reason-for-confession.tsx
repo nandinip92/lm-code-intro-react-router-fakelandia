@@ -2,12 +2,12 @@ import React from "react";
 import { useRef } from "react";
 import { MisdemeanourKind } from "../../types/misdemeanour.types";
 
-export interface ReasonForContactProps {
-  reasonForContact: string | MisdemeanourKind;
+export interface ReasonForConfessionProps {
+  reasonForConfession: string | MisdemeanourKind;
   onChangeField: (newValue: string) => void;
 }
-export const ReasonForContact: React.FC<ReasonForContactProps> = ({
-  reasonForContact,
+export const ReasonForConfession: React.FC<ReasonForConfessionProps> = ({
+  reasonForConfession,
   onChangeField,
 }) => {
   const inputRef = useRef<HTMLSelectElement>(null);
@@ -27,7 +27,7 @@ export const ReasonForContact: React.FC<ReasonForContactProps> = ({
             ref={inputRef}
             className="confessions dropDown"
             id="confession"
-            defaultValue={reasonForContact}
+            defaultValue={reasonForConfession}
             onChange={(event) => handleClick(event)}
           >
             <option value="reason for confession" disabled>

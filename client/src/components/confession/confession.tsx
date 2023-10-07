@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Subject } from "./subject";
-import { ReasonForContact } from "./reason-for-contact";
+import { ReasonForConfession } from "./reason-for-confession";
 import { TextArea } from "./text-area";
 import { MisdemeanourKind } from "../../types/misdemeanour.types";
 import { validateSubject, validateReason } from "./validate/validate-fields";
@@ -12,7 +12,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
 }) => {
   const { misdemeanours } = useMisdemeanoursList();
   const [subjectLine, setSubjectLine] = useState("");
-  const [reasonForContact, setReasonForContact] = useState<
+  const [reasonForConfession, setReasonForConfession] = useState<
     MisdemeanourKind | string
   >("reason for confession");
   const [textArea, setTextArea] = useState("");
@@ -22,7 +22,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
 
   const validate = () => {
     const isValidSubject = validateSubject(subjectLine);
-    const isValidResaon = validateReason(reasonForContact);
+    const isValidResaon = validateReason(reasonForConfession);
     return isValidSubject[0] && isValidResaon[0];
   };
 
@@ -32,7 +32,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
     onSubmit && onSubmit();
     const confessForm = {
       subject: subjectLine,
-      reason: reasonForContact, // either a MisdemeanourKind OR the string `just-talk`
+      reason: ReasonForConfession, // either a MisdemeanourKind OR the string `just-talk`
       details: textArea,
     };
     try {
@@ -47,7 +47,7 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
         console.log(json.message);
         misdemeanours.push({
           citizenId: Math.floor(11 + Math.random() * 37 * Math.random() * 967),
-          misdemeanour: reasonForContact as MisdemeanourKind,
+          misdemeanour: reasonForConfession as MisdemeanourKind,
           date: new Date().toLocaleDateString(),
         });
         setPostIsSuccess(json.message);
@@ -73,9 +73,9 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
       )}
       <div className="confessions">
         <Subject subjectLine={subjectLine} onChangeField={setSubjectLine} />
-        <ReasonForContact
-          reasonForContact={reasonForContact}
-          onChangeField={setReasonForContact}
+        <ReasonForConfession
+          reasonForConfession={reasonForConfession}
+          onChangeField={setReasonForConfession}
         />
         <TextArea textArea={textArea} onChangeTextArea={setTextArea} />
         <button

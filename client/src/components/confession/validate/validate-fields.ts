@@ -11,10 +11,10 @@ export const validateSubject = (
 };
 
 export const validateReason = (
-  reasonForContact: string
+  ReasonForConfession: string
 ): [boolean, string | undefined] => {
   let error = undefined;
-  if (reasonForContact === "reason for confession") {
+  if (ReasonForConfession === "reason for confession") {
     error = "Please select the reason for you confession";
     return [false, error];
   }
