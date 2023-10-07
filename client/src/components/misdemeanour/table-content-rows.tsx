@@ -16,10 +16,16 @@ export const TableContentRows: React.FC<TableContentRows> = ({
     <>
       <div className={rowName}>
         <div className="wrapper">
-          <div className="column citizenId">{misdemeanour.citizenId}</div>
-          <div className="column date">{misdemeanour.date}</div>
-          <div className="column misdemeanour">{misdemeanour.misdemeanour}</div>
-          <div className="column punishmentIdea">
+          <div className="table__column table__column--citizenId">
+            {misdemeanour.citizenId}
+          </div>
+          <div className="table__column table__column--date">
+            {misdemeanour.date}
+          </div>
+          <div className="table__column table__column--misdemeanour">
+            {misdemeanour.misdemeanour}
+          </div>
+          <div className="table__column table__column--punishmentIdea">
             <img src={`https://picsum.photos/id/${pic_id}/100`} />
           </div>
         </div>
@@ -46,10 +52,10 @@ export const TableContentRows: React.FC<TableContentRows> = ({
     <>
       <div className="table__row">
         <div className="wrapper">
-          <div className="column citizenId">{misdemeanour.citizenId}</div>
-          <div className="column date">{misdemeanour.date}</div>
-          <div className="column misdemeanour">{misdemeanour.misdemeanour}</div>
-          <div className="column punishmentIdea">
+          <div className="table__column table__column-- citizenId">{misdemeanour.citizenId}</div>
+          <div className="table__column table__column-- date">{misdemeanour.date}</div>
+          <div className="table__column table__column-- misdemeanour">{misdemeanour.misdemeanour}</div>
+          <div className="table__column table__column-- punishmentIdea">
             <img src="https://picsum.photos/100" />
           </div>
         </div>

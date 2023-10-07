@@ -76,8 +76,7 @@
 .table__row--header {
   box-shadow: 0 1px 2px 0 #e9effa;
   color: var(--bronze-color);
-
-  .column {
+  .table__column {
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: bold;
@@ -90,13 +89,13 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-  /* column-gap: 2rem; */
+  /* column-gap: 2rem;*/
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.column {
+.table__column {
   font-size: 2rem;
   -webkit-font-smoothing: antialiased;
 }

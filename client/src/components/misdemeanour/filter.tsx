@@ -20,11 +20,11 @@ const Filter: React.FC<{ onChangeFilter: (newValue: string) => void }> = ({
     <>
       <div className="table__row">
         <div className="wrapper">
-          <div className="column citizenId" />
-          <div className="column date" />
+          <div className="table__column table__column--citizenId" />
+          <div className="table__column table__column--date" />
           <select
             ref={inputRef}
-            className="column misdemeanour"
+            className="table__column table__column--misdemeanour"
             data-testid="midemeanoursFilter"
             defaultValue="no_filter"
             onChange={(event) => handleClick(event)}
@@ -35,7 +35,7 @@ const Filter: React.FC<{ onChangeFilter: (newValue: string) => void }> = ({
             <option value="lift">Lift</option>
             <option value="united">united</option>
           </select>
-          <div className="column punishmentIdea" />
+          <div className="table__column table__column--punishmentIdea" />
         </div>
       </div>
     </>
