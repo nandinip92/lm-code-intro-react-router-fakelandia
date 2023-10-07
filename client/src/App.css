@@ -54,6 +54,10 @@
 /* .homePage {
   text-align: center;
 } */
+.homepage-intro {
+  font-size: 1.2rem;
+  font-family: "Mooli", sans-serif;
+}
 .cards__wrapper {
   display: flex;
   justify-content: space-evenly;
