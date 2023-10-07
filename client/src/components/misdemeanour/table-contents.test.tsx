@@ -23,6 +23,13 @@ const misdemeanours = [
 ] as Misdemeanour[];
 const context = { misdemeanours: misdemeanours, setMisdemeanours: () => {} };
 
+/*const misdemeanour_emoji = {
+  rudeness: "🤪",
+  vegetables: "🥗",
+  lift: "🗣",
+  united: "😈",
+};
+*/
 beforeEach(() => {
   jest
     .spyOn(MisdemeanoursContext, "useMisdemeanoursList")
@@ -46,7 +53,7 @@ describe("<TableContents/>", () => {
     render(<TableContents filter={"lift"} />);
     const input = screen.getByText("6978");
     expect(input).toBeInTheDocument();
-    const input2 = screen.getByText("lift");
+    const input2 = screen.getByText("🗣");
     expect(input2).toBeInTheDocument();
   });
 });
