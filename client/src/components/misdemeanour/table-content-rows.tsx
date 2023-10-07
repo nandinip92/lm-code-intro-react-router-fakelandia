@@ -5,12 +5,19 @@ export interface TableContentRows {
   misdemeanour: Misdemeanour;
   selfConfessed?: boolean; //flag to check if the data is from server or from the Confession page
 }
+const misdemeanour_emoji = {
+  rudeness: "🤪",
+  vegetables: "🥗",
+  lift: "🗣",
+  united: "😈",
+};
 export const TableContentRows: React.FC<TableContentRows> = ({
   misdemeanour,
   selfConfessed,
 }) => {
   let rowName = "table__row";
   if (selfConfessed) rowName = "table__row--selfConfession";
+
   const pic_id = Math.floor(Math.random() * 40); //generating randon pictures
   return (
     <>
@@ -22,7 +29,7 @@ export const TableContentRows: React.FC<TableContentRows> = ({
           {misdemeanour.date}
         </div>
         <div className="table__column table__column--misdemeanour">
-          {misdemeanour.misdemeanour}
+          {misdemeanour_emoji[misdemeanour.misdemeanour]}
         </div>
         <div className="table__column table__column--punishmentIdea">
           <img src={`https://picsum.photos/id/${pic_id}/100`} />
