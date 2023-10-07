@@ -63,16 +63,45 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+/*Following CSS is using Flexbox*/
 .table__row,
 .table__row--selfConfession {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 2rem;
+  flex-flow: row wrap;
+  justify-content: space-between;
   border-bottom: 1px solid #dce1ea;
-  box-sizing: border-box;
+  padding: 0.5rem;
+  .table__column {
+    font-size: 1.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .table__column--citizenId {
+    width: 3rem;
+  }
+  .table__column--date {
+    width: 5rem;
+  }
+  .table__column--misdemeanour {
+    width: 12rem;
+  }
+  .table__column--punishmentIdea {
+    width: 12rem;
+  }
 }
+
+/*Following CSS is using grid
+.table__row,
+.table__row--selfConfession {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 25%);
+  grid-template-rows: repeat(auto-fill, 100%);
+  padding: 0.5rem;
+  border-bottom: 1px solid #dce1ea;
+  .table__column {
+    font-size: 1.5rem;
+  }
+}
+*/
 .table__row--header {
   box-shadow: 0 1px 2px 0 #e9effa;
   color: var(--bronze-color);
@@ -86,19 +115,6 @@
   color: var(--orangered-color);
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  /* column-gap: 2rem;*/
-  width: 100%;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.table__column {
-  font-size: 2rem;
-  -webkit-font-smoothing: antialiased;
-}
 .errorMessages {
   font-size: 1.2rem;
   color: red;
