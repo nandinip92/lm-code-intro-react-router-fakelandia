@@ -161,24 +161,24 @@
     width: 50rem;
     height: 20rem;
   }
-  .submit_button {
-    font-size: 1.5rem;
-    font-weight: bolder;
-    color: darkmagenta;
-    background-color: lightblue;
-    width: 10rem;
-    height: 4rem;
-  }
-
-  .submit_button:hover {
-    color: rgb(218, 207, 218);
-    background-color: rgb(75, 135, 155);
-  }
-  .submit_button:disabled {
-    background-color: grey;
-    color: #e9effa;
-  }
 }
+.submit_button {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: darkmagenta;
+  background-color: lightblue;
+  width: 10rem;
+  height: 4rem;
+}
+.submit_button:hover {
+  color: rgb(218, 207, 218);
+  background-color: rgb(75, 135, 155);
+}
+.submit_button:disabled {
+  background-color: grey;
+  color: #e9effa;
+}
+
 .postMessage {
   font-size: 2rem;
   font-weight: 900;
