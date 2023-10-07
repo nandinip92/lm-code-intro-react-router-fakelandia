@@ -50,9 +50,9 @@ export const Confession: React.FC<{ onSubmit?: () => void }> = ({
           misdemeanour: reasonForConfession as MisdemeanourKind,
           date: new Date().toLocaleDateString(),
         });
-        setPostIsSuccess(json.message);
         console.log("Adding confession to list--->", misdemeanours);
       }
+      setPostIsSuccess(json.message);
     } catch (error) {
       console.log(`ERROR:${error}`);
     }
