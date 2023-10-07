@@ -15,19 +15,17 @@ export const TableContentRows: React.FC<TableContentRows> = ({
   return (
     <>
       <div className={rowName}>
-        <div className="wrapper">
-          <div className="table__column table__column--citizenId">
-            {misdemeanour.citizenId}
-          </div>
-          <div className="table__column table__column--date">
-            {misdemeanour.date}
-          </div>
-          <div className="table__column table__column--misdemeanour">
-            {misdemeanour.misdemeanour}
-          </div>
-          <div className="table__column table__column--punishmentIdea">
-            <img src={`https://picsum.photos/id/${pic_id}/100`} />
-          </div>
+        <div className="table__column table__column--citizenId">
+          {misdemeanour.citizenId}
+        </div>
+        <div className="table__column table__column--date">
+          {misdemeanour.date}
+        </div>
+        <div className="table__column table__column--misdemeanour">
+          {misdemeanour.misdemeanour}
+        </div>
+        <div className="table__column table__column--punishmentIdea">
+          <img src={`https://picsum.photos/id/${pic_id}/100`} />
         </div>
       </div>
     </>
