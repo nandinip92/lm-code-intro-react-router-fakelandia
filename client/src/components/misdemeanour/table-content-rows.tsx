@@ -11,6 +11,7 @@ export const TableContentRows: React.FC<TableContentRows> = ({
 }) => {
   let rowName = "table__row";
   if (selfConfessed) rowName = "table__row--selfConfession";
+  const pic_id = Math.floor(Math.random() * 40); //generating randon pictures
   return (
     <>
       <div className={rowName}>
@@ -19,7 +20,7 @@ export const TableContentRows: React.FC<TableContentRows> = ({
           <div className="column date">{misdemeanour.date}</div>
           <div className="column misdemeanour">{misdemeanour.misdemeanour}</div>
           <div className="column punishmentIdea">
-            <img src="https://picsum.photos/100" />
+            <img src={`https://picsum.photos/id/${pic_id}/100`} />
           </div>
         </div>
       </div>
