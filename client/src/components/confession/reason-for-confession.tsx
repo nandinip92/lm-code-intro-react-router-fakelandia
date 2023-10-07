@@ -19,27 +19,25 @@ export const ReasonForConfession: React.FC<ReasonForConfessionProps> = ({
   return (
     <>
       <div className="confessions__row">
-        <div className="confession_rowWrapper">
-          <label className="confessions tag" htmlFor="confession">
-            Reason for Confession:{" "}
-          </label>
-          <select
-            ref={inputRef}
-            className="confessions dropDown"
-            id="confession"
-            defaultValue={reasonForConfession}
-            onChange={(event) => handleClick(event)}
-          >
-            <option value="reason for confession" disabled>
-              Reason for Confession
-            </option>
-            <option value="rudeness">Rudeness</option>
-            <option value="vegetables">Vegetables</option>
-            <option value="lift">Lift</option>
-            <option value="united">united</option>
-            <option value="just-talk">I Just Want to Talk</option>
-          </select>
-        </div>
+        <label className="confessions tag" htmlFor="confession">
+          Reason for Confession:{" "}
+        </label>
+        <select
+          ref={inputRef}
+          className="confessions dropDown"
+          id="confession"
+          defaultValue={reasonForConfession}
+          onChange={(event) => handleClick(event)}
+        >
+          <option value="reason for confession" disabled>
+            Reason for Confession
+          </option>
+          <option value="rudeness">Rudeness</option>
+          <option value="vegetables">Vegetables</option>
+          <option value="lift">Lift</option>
+          <option value="united">united</option>
+          <option value="just-talk">I Just Want to Talk</option>
+        </select>
       </div>
     </>
   );

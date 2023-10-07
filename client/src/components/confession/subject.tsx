@@ -27,18 +27,16 @@ export const Subject: React.FC<SubjectProps> = ({
   return (
     <>
       <div className="confessions__row">
-        <div className="confession_rowWrapper">
-          <label className="confessions tag" htmlFor="subject">
-            Subject:
-          </label>
-          <input
-            className="confessions subject"
-            id="subject"
-            type="text"
-            value={subjectLine}
-            onChange={(event) => handleChange(event)}
-          />
-        </div>
+        <label className="confessions tag" htmlFor="subject">
+          Subject:
+        </label>
+        <input
+          className="confessions subject"
+          id="subject"
+          type="text"
+          value={subjectLine}
+          onChange={(event) => handleChange(event)}
+        />
         {errorMessage !== undefined && (
           <p className="errorMessages">{errorMessage}</p>
         )}

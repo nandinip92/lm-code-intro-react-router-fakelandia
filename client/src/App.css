@@ -113,13 +113,18 @@
   font-size: 1.2rem;
   color: red;
 }
-.confessions {
-  font-size: 1.5rem;
-  .confession_rowWrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 2rem;
+.confessions__row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  padding: 0.5rem;
+
+  .confessions {
+    font-size: 1.2rem;
+  }
+  .tag {
+    width: 9rem;
   }
 
   .textArea {
