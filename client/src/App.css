@@ -26,34 +26,28 @@
   color: var(--maroon-color);
 }
 
-.main-nav__list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .main-nav {
   text-align: center;
   background-color: var(--light-color);
-}
+  .main-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    font-family: poppins;
+    font-size: 2rem;
+  }
+  .linkInActive {
+    color: var(--voilet-color);
+  }
+  .linkActive {
+    font-size: 2.2rem;
+  }
 
-.main-nav__list {
-  /* justify-content: space-evenly; */
-  list-style-type: none;
-  font-family: poppins;
-  font-size: 2rem;
-}
-
-.linkInActive {
-  color: var(--voilet-color);
-}
-.linkActive {
-  font-size: 2.2rem;
-}
-
-.linkActive:hover,
-.linkInActive:hover {
-  background-color: orange;
+  .linkActive:hover,
+  .linkInActive:hover {
+    background-color: orange;
+  }
 }
 
 .homePage {
@@ -121,37 +115,35 @@
 }
 .confessions {
   font-size: 1.5rem;
-}
-.confession_rowWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 2rem;
-}
+  .confession_rowWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+  }
 
-.textArea {
-  width: 50rem;
-  height: 20rem;
-}
+  .textArea {
+    width: 50rem;
+    height: 20rem;
+  }
+  .submit_button {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: darkmagenta;
+    background-color: lightblue;
+    width: 10rem;
+    height: 4rem;
+  }
 
-.submit_button {
-  font-size: 1.5rem;
-  font-weight: bolder;
-  color: darkmagenta;
-  background-color: lightblue;
-  width: 10rem;
-  height: 4rem;
+  .submit_button:hover {
+    color: rgb(218, 207, 218);
+    background-color: rgb(75, 135, 155);
+  }
+  .submit_button:disabled {
+    background-color: grey;
+    color: #e9effa;
+  }
 }
-
-.submit_button:hover {
-  color: rgb(218, 207, 218);
-  background-color: rgb(75, 135, 155);
-}
-.submit_button:disabled {
-  background-color: grey;
-  color: #e9effa;
-}
-
 .postMessage {
   font-size: 2rem;
   font-weight: 900;
