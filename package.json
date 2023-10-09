@@ -7,8 +7,6 @@
     "doc": "docs"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start-server": "cd server && npm start",
     "start-client": "cd client && npm run dev",
     "test-client": "cd client && npm test",
@@ -38,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/nandinip92/lm-code-intro-react-router-fakelandia/issues"
   },
-  "homepage": "https://github.com/nandinip92/lm-code-intro-react-router-fakelandia",
+  "homepage": "https://github.com/nandinip92/lm-code-intro-react-router-fakelandia#readme",
   "devDependencies": {
     "@types/cors": "^2.8.13",
     "gh-pages": "^6.0.0"
