@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react";
 import Filter from "./filter";
@@ -21,7 +22,7 @@ describe("<Filter/>", () => {
   it(`Given the required props,
   If we Select certain option, do they get selected value`, () => {
     //Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps = {
       onChangeFilter: mockOnChange,
     };
@@ -37,7 +38,7 @@ describe("<Filter/>", () => {
   it(`Given the required props,
   If we Select certain option, do does it get selected`, () => {
     ///Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps = {
       onChangeFilter: mockOnChange,
     };

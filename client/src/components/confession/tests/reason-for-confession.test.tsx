@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react";
 import {
@@ -25,7 +26,7 @@ describe("<ReasonForConfession/>", () => {
   it(`Given the required props,
   If we Select certain option, do they get selected value`, () => {
     //Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps: ReasonForConfessionProps = {
       reasonForConfession: "reason for contact",
       onChangeField: mockOnChange,
@@ -42,7 +43,7 @@ describe("<ReasonForConfession/>", () => {
   it(`Given the required props,
   If we Select certain option, do does it get selected`, () => {
     ///Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps: ReasonForConfessionProps = {
       reasonForConfession: "reason for contact",
       onChangeField: mockOnChange,

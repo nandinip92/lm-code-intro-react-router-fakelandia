@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Subject, SubjectProps } from "../subject";
 
@@ -34,7 +35,7 @@ describe("<Subject/>", () => {
   when the text is typed in the text box, 
   input field should call its 'onChange' function and pass it the correct parameters`, () => {
     ///Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps: SubjectProps = {
       subjectLine: "",
       onChangeField: mockOnChange,

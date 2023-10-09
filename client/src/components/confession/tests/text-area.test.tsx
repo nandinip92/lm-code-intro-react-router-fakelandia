@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { TextAreaProps } from "../text-area";
 import { fireEvent } from "@testing-library/react";
@@ -40,7 +41,7 @@ describe("<TextArea/>", () => {
   when the text is typed in the text box, 
   input field should call its onChange function and pass it the correct parameters`, () => {
     ///Arrange
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
     const requiredProps: TextAreaProps = {
       textArea: "",
       onChangeTextArea: mockOnChange,

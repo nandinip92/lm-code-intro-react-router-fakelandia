@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Confession } from "../confession";
 import userEvent from "@testing-library/user-event";
@@ -6,12 +7,12 @@ import * as MisdemeanoursContext from "../../hooks/useMisdemeanoursList";
 
 const context = { misdemeanours: [], setMisdemeanours: () => {} };
 beforeEach(() => {
-  jest
-    .spyOn(MisdemeanoursContext, "useMisdemeanoursList")
-    .mockReturnValue(context);
+  vi.spyOn(MisdemeanoursContext, "useMisdemeanoursList").mockReturnValue(
+    context
+  );
 });
 afterEach(() => {
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });
 describe("<button/>", () => {
   it(`Given the required props, 

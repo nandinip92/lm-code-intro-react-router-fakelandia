@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 //import { fireEvent } from "@testing-library/react";
 import { TableContents } from "./table-contents";
@@ -31,12 +32,12 @@ const context = { misdemeanours: misdemeanours, setMisdemeanours: () => {} };
 };
 */
 beforeEach(() => {
-  jest
-    .spyOn(MisdemeanoursContext, "useMisdemeanoursList")
-    .mockReturnValue(context);
+  vi.spyOn(MisdemeanoursContext, "useMisdemeanoursList").mockReturnValue(
+    context
+  );
 });
 afterEach(() => {
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });
 
 describe("<TableContents/>", () => {
