@@ -2,7 +2,8 @@ import { useMisdemeanoursList } from "../hooks/useMisdemeanoursList";
 
 export const Home: React.FC = () => {
   const { misdemeanours } = useMisdemeanoursList();
-  const confessionsToday = misdemeanours.length - 10;
+  const confessionsToday =
+    misdemeanours.length == 0 ? 0 : misdemeanours.length - 10;
   return (
     <>
       <p className="homepage-intro">
