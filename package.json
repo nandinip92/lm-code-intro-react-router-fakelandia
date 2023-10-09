@@ -7,6 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start-server": "cd server && npm start",
     "start-client": "cd client && npm run dev",
     "test-client": "cd client && npm test",
@@ -29,17 +31,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techreturners/lm-code-intro-react-router-fakelandia.git"
+    "url": "git+https://github.com/nandinip92/lm-code-intro-react-router-fakelandia.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/techreturners/lm-code-intro-react-router-fakelandia/issues"
+    "url": "https://github.com/nandinip92/lm-code-intro-react-router-fakelandia/issues"
   },
-  "homepage": "https://github.com/techreturners/lm-code-intro-react-router-fakelandia#readme",
+  "homepage": "https://github.com/nandinip92/lm-code-intro-react-router-fakelandia",
   "devDependencies": {
-    "@testing-library/dom": "^9.3.3",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/cors": "^2.8.13"
+    "@types/cors": "^2.8.13",
+    "gh-pages": "^6.0.0"
   }
 }
